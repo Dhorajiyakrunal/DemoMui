@@ -1,25 +1,69 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
 
 function App() {
+
+  const [count, setCount] = useState(null)
+
+  useEffect(() => {
+    setInterval(() => {
+      setCount(new Date().toLocaleTimeString())
+      
+    }, 10);
+  }, [])
+  
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      timer is {count}
     </div>
-  );
+  )
 }
 
 export default App;
+
+import React, { Component } from 'react'
+
+export default class App extends Component {
+  constructor(){
+    super()
+    this.state ={
+    }
+    
+  }
+  componentDidMount(){
+    setInterval(() => {
+        this.setState({timer : new Date().toLocaleTimeString()})
+    }, 1000);
+  }
+  render() {
+    return (
+      <div>timer is {this.state.timer}</div>
+    )
+  }
+}
+
+
+// import React, { useState, useEffect } from "react";
+// import './App.css';
+
+
+// function App() {
+
+//   const [count, setcount] = useState(1)
+
+//   useEffect(() => {
+ 
+//   }, [count])
+
+//   return (
+//     <div className="App">
+//       <button onClick={()=>setcount(count + 1)}>+</button>
+//       {count}
+//       <button onClick={()=>setcount(count - 1)}>-</button>
+//     </div>
+//   )
+// }
+
+// export default App
+
+
