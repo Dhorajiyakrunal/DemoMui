@@ -1,69 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React from 'react'
+import Drawer from './Pages/drawer'
+import {Route, Routes } from 'react-router-dom'
 
-function App() {
 
-  const [count, setCount] = useState(null)
-
-  useEffect(() => {
-    setInterval(() => {
-      setCount(new Date().toLocaleTimeString())
-      
-    }, 10);
-  }, [])
-  
-  
+const App = () => {
   return (
-    <div className="App">
-      timer is {count}
+    <div>
+      <Routes>
+        <Route path='/' element={<Drawer />} />
+
+
+      </Routes>
+
     </div>
   )
 }
 
-export default App;
-
-import React, { Component } from 'react'
-
-export default class App extends Component {
-  constructor(){
-    super()
-    this.state ={
-    }
-    
-  }
-  componentDidMount(){
-    setInterval(() => {
-        this.setState({timer : new Date().toLocaleTimeString()})
-    }, 1000);
-  }
-  render() {
-    return (
-      <div>timer is {this.state.timer}</div>
-    )
-  }
-}
-
-
-// import React, { useState, useEffect } from "react";
-// import './App.css';
-
-
-// function App() {
-
-//   const [count, setcount] = useState(1)
-
-//   useEffect(() => {
- 
-//   }, [count])
-
-//   return (
-//     <div className="App">
-//       <button onClick={()=>setcount(count + 1)}>+</button>
-//       {count}
-//       <button onClick={()=>setcount(count - 1)}>-</button>
-//     </div>
-//   )
-// }
-
-// export default App
-
-
+export default App
